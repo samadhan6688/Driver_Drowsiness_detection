@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+    <style>
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image-container img {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Images</h1>
+    <div class="image-container">
+        {% for image in images %}
+        <img src="{{ url_for('static', filename='captured_images/' + image) }}" alt="Image" onclick="openImage('{{ url_for('static', filename='images/' + image) }}')">
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
